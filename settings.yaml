@@ -1,0 +1,9 @@
+from: Normal Norge <post@normal.no>
+
+#reply-to: no-reply@normal.no
+
+# Note: TLS encryption is used if hostname != localhost
+#hostname: smtp.online.no
+#port: 25
+#username: myuser
+#password: mypassword
