@@ -12,12 +12,15 @@ with open ('settings.yaml') as fp:
 
 parser = argparse.ArgumentParser()
 parser.add_argument ('-s', '--subject', required=True)
+parser.add_argument ('-r', '--reply-to')
 args = parser.parse_args()
 
 
 msg = spambot.EmailMessage ('body.html', 'body.txt')
 msg['From'] = settings['from']
 msg['Subject'] = unicode (args.subject, 'utf-8')
+if args.reply_to:
+    msg['Reply-to'] = args.reply_to
 
 
 # Read email addresses from stdin and send email
