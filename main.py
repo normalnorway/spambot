@@ -5,9 +5,22 @@ import argparse
 import yaml
 import spambot
 
+settings = {
+    'host': 'localhost',
+    'port': 25,
+    'username': None,
+    'password': None,
+#    'debug': False,
+#    'reply-to': None,
+}
+
 with open ('settings.yaml') as fp:
-    settings = yaml.load (fp.read())
+    settings.update (yaml.load (fp.read()))
     assert 'from' in settings
+
+#from pprint import pprint
+#pprint (settings)
+#exit(1)
 
 
 parser = argparse.ArgumentParser()
@@ -23,8 +36,14 @@ if args.reply_to:
     msg['Reply-to'] = args.reply_to
 
 
+#spammer = spambot.Sender()
+spammer = spambot.Sender (host = settings['host'],
+                          port = settings['port'],
+                          username = settings['username'],
+                          password= settings['password'])
+#spammer = spambot.Sender (**settings)  # unexpected keyword argument 'from'
+
 # Read email addresses from stdin and send email
-spammer = spambot.Sender()
 for line in sys.stdin:
     recipient = line.strip()
     del msg['To']

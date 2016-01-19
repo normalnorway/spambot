@@ -25,6 +25,7 @@ def multipart_email (body_html, body_text):
 
 
 import smtplib
+import time
 from random import randint
 
 class Sender (object):
