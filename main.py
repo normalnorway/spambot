@@ -40,7 +40,7 @@ msg['Precedence'] = 'bulk'
 #msg['X-TM-ID'] = '20160131203015.6015731.76280'
 #msg['X-rpcampaign'] = 'stjqg6015731'
 # @todo read x-info from settings.yaml
-#msg['X-Info'] = 'Message sent by Normal Norway – http://normal.no'
+#msg['X-Info'] = 'Message sent by Normal Norway -- http://normal.no'
 #msg['X-Info'] = 'We do not permit unsolicited commercial email'
 #msg['X-Info'] = 'Please report abuse by forwarding complete headers to'
 #msg['X-Info'] = 'abuse@normal.no'
