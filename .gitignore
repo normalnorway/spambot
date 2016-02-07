@@ -1,3 +1,7 @@
 *~
 *.pyc
 .*.swp
+
+settings.yaml
+body.html
+body.txt

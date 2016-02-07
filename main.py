@@ -1,4 +1,3 @@
-## Send to addresses passed on stdin
 import sys, time
 from random import randint
 import argparse
@@ -34,6 +33,18 @@ msg['From'] = settings['from']
 msg['Subject'] = unicode (args.subject, 'utf-8')
 if args.reply_to:
     msg['Reply-to'] = args.reply_to
+
+# Add some customer headers, hoping to decrease the "spamminess".
+# Stolen/borrowed from Mailchimp.com
+msg['Precedence'] = 'bulk'
+#msg['X-TM-ID'] = '20160131203015.6015731.76280'
+#msg['X-rpcampaign'] = 'stjqg6015731'
+# @todo read x-info from settings.yaml
+#msg['X-Info'] = 'Message sent by Normal Norway – http://normal.no'
+#msg['X-Info'] = 'We do not permit unsolicited commercial email'
+#msg['X-Info'] = 'Please report abuse by forwarding complete headers to'
+#msg['X-Info'] = 'abuse@normal.no'
+msg['X-Mailer'] = 'https://github.com/normalnorway/spambot'
 
 
 #spammer = spambot.Sender()
